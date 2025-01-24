@@ -91,9 +91,12 @@ print(f'There are {df["Item"].nunique()} unique items sold.')
 print(f'Unique values in Item category: \n {df["Item"].unique()}')
 ```
 
-<img src=images/itemin.png width="600" height="120"/>
+<img src=images/itemin.png width="600" height="100"/>
 
-### Rectify 'Item' values
+### Steps to clean 'Items'
+Using items_prices dict, replace incorrect values in 'Item' column using 'Price Per Unit' column values 
+
+#### 1. Create Item Dictionary
 - Create dictionary of item to price
 - Create dataset that has incorrect values in 'Item' column
 - Replace the values accordingly using the new dictionary
@@ -111,4 +114,45 @@ items_prices = {
     "Smoothie": 4,
     "Juice": 3
 }
+
+# list of item names
+correct_item_values = ['Coffee','Cake','Cookie','Salad','Smoothie', 'Sandwich', 'Juice' , 'Tea']
+
+df["Price Per Unit"] = df["Total Spent"] / df["Quantity"]
+
+# filter by 'Item' with correct item names, then use '~' to negate that, leaving all incorrect item names
+df_item_incorrect = df[~df["Item"].isin(correct_item_values)]
+(df_item_incorrect).head(50)
+
+
+# generate dictionary of price-item
+price_to_item = {value: key for key, value in items_prices.items()}
+
 ```
+#### 2. Mapping Prices to Items 
+- Replace incorrect "Item" values in a DataFrame by mapping the "Price Per Unit" column to a dictionary (price_to_item). 
+- If a price exists in the dictionary, the corresponding item name is assigned; otherwise, the "Item" value is set to "No Price per unit."
+- The unique updated items are printed, and rows with missing item names are identified and displayed for further review.
+
+``` python
+# use the index of rows in df_item_incorrect to replace incorrect values with the price dictionary 
+for index in df_item_incorrect.index:
+    # If the "Price Per Unit" exists in the price_to_item dictionary, replace "Item" with the corresponding key.
+    # If no match is found in price_to_item, set "Item" to "No Price per unit".
+    df.loc[index,"Item"] = price_to_item.get(df.loc[index, "Price Per Unit"], "No Price per unit")
+    
+print(df["Item"].unique())
+
+
+missing_item_name = df[df["Item"]=="No Price per unit"]
+print(missing_item_name)
+```
+
+<img src=images/map_dict.png width="850" height="300"/>
+
+#### Dropping rows
+
+missing_item_name = df[df["Item"]=="No Price per unit"]
+- This gives a dataset that has no 'Item' AND 'Price per Unit' entry. 
+- Use 'Total Spent' / 'Quantity' to get 'Price per Unit'
+- Drop rows where I still get an error after the step above
