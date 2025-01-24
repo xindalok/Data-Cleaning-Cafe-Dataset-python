@@ -34,7 +34,7 @@ txn_count
 ##### 1. There are no recurring Transaction IDs. <br>
 ##### 2. Messy data 
 1. Unknown data in Item column
-    - Use 'Price per unit' to determine the item
+    - Use item_price dictionary to determine the item
 2. Error values in Quantity column
     - Use 'Total Spent' / 'Price per unit' to get value
 3. Error values in 'Total Spent' column
