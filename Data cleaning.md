@@ -216,6 +216,8 @@ print(df[df["Item"] == "No Price per unit"])
 #### Reconcile NaN 'Price Per Unit' values 
 1. using price dictionary to match Item names
 2. Use 'Total Spent' / 'Quantity'
+3. Remove rows from the dataFrame where the "Price Per Unit" column contains infinite values.
+
 
 ``` python
 missing__price_per_unit = df[df["Price Per Unit"].isna()]
@@ -229,4 +231,11 @@ df.loc[df["Price Per Unit"].isna(), "Price Per Unit"] = pd.to_numeric(
 
 print(sorted(df["Price Per Unit"].unique()))
 ```
+<img src=images/inf.png width="400" height="40"/>
+
+``` python
+df = df.drop(df.loc[df["Price Per Unit"]== np.inf].index, axis = 0)
+print(sorted(df["Price Per Unit"].unique()))
+```
+<img src=images/noinf.png width="300" height="40"/>
 
