@@ -174,25 +174,18 @@ print(missing_item_name)
 
 <img src=images/map_dict.png width="850" height="300"/>
 
-#### 3. Dropping rows
-
-missing_item_name = df[df["Item"]=="No Price per unit"]
-- This gives a dataset that has no 'Item' AND 'Price per Unit' entry. 
-- Use 'Total Spent' / 'Quantity' to get 'Price per Unit'
-- Drop rows where I still get an error after the step above
-
-### 4. Price and Item Data Reconciliation 
+### 3. Price and Item Data Reconciliation 
 
 - **Price Per Unit Calculation:**  
   Iterates through rows in the `missing_item_name` DataFrame, calculating the 'Price Per Unit' by dividing 'Total Spent' by 'Quantity' with error handling for non-numeric values.  
 
 - **Unresolvable Rows Handling:**  
-  Drops rows where the 'Price Per Unit' equals $4 or $3, as these prices correspond to multiple items, making item reconciliation infeasible.  
+  Drops rows where the 'Price Per Unit' equals $4 or $3, as these prices correspond to multiple items, making item reconciliation not possible.  
 
 - **Item Mapping via Dictionary:**  
   Matches the calculated 'Price Per Unit' to the `price_to_item` dictionary to assign the corresponding 'Item' name.  
 
-- **Error Filtering:**  
+- **Dropping rows:**  
   Drops rows where the 'Price Per Unit' cannot be matched to the dictionary or where errors in 'Total Spent' or 'Quantity' prevent accurate calculations.  
 
 - **Validation:**  
@@ -216,5 +209,24 @@ for index in missing_item_name.index:
         
 print(df[df["Item"] == "No Price per unit"])
 ```
-<img src=images/empty.png width="7000" height="80"/>
+<img src=images/empty.png width="900" height="70"/>
+
+## Rectify 'Price Per Unit' column 
+
+#### Reconcile NaN 'Price Per Unit' values 
+1. using price dictionary to match Item names
+2. Use 'Total Spent' / 'Quantity'
+
+``` python
+missing__price_per_unit = df[df["Price Per Unit"].isna()]
+
+for index in missing__price_per_unit.index:
+    df.loc[index,"Price Per Unit"] = items_prices.get(df.loc[index, "Item"], df.loc[index,"Price Per Unit"])
+
+df.loc[df["Price Per Unit"].isna(), "Price Per Unit"] = pd.to_numeric(
+    df["Total Spent"] / df["Quantity"], 
+    errors = "coerce")
+
+print(sorted(df["Price Per Unit"].unique()))
+```
 
