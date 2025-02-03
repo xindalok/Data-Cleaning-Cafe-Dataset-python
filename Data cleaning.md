@@ -10,6 +10,7 @@
          - [Dictionary Mapping Prices to Items](#2-mapping-prices-to-items)
          - [Data Reconciliation](#3-data-reconciliation)
     - [Price Per Unit column](#rectify-price-per-unit-column)
+         - [Reconcile NaN values](#reconcile-nan-price-per-unit-values)
 
  
 
