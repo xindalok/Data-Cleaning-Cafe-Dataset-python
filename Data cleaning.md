@@ -249,7 +249,7 @@ print(df[df["Item"] == "No Price per unit"])
 ### Rectify 'Price Per Unit' column 
 
 #### Reconcile NaN 'Price Per Unit' values 
-1. using price dictionary to match Item names
+1. Use price dictionary to match Item names
 2. Use 'Total Spent' / 'Quantity'
 3. Remove rows from the dataFrame where the "Price Per Unit" column contains infinite values.
 
