@@ -2,6 +2,8 @@
 
 1. [Summary of Data Cleaning Steps](#introduction)
 2. [Dataset](#dataset)
+    - [Inspect dataset](#inspect-dataset)
+
 
 
 ### [Summary of Data Cleaning Steps](#summary-of-data-cleaning-steps)
