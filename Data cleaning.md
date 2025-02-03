@@ -1,6 +1,8 @@
 # Table of Contents
 
-1. [Summary of Data Cleaning Steps](#introduction)  
+1. [Summary of Data Cleaning Steps](#introduction)
+2. [Dataset](#dataset)
+
 
 ### [Summary of Data Cleaning Steps](#summary-of-data-cleaning-steps)
 
@@ -26,6 +28,7 @@
 - **Column Recalculation:**  
   Revalidated the 'Total Spent' column by recomputing it as the product of 'Quantity' and 'Price Per Unit.'  
 
+## Dataset
 
 ``` python
 import numpy as np 
