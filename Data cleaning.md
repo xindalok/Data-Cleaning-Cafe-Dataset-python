@@ -3,6 +3,15 @@
 1. [Summary of Data Cleaning Steps](#introduction)
 2. [Dataset](#dataset)
     - [Inspect dataset](#inspect-dataset)
+    - [Observations on data](#observations-on-data)
+3. [Data Preprocessing](#data-preprocessing)
+    - [Convert column dtypes](#convert-column-dtypes)
+
+
+
+
+
+
 
 
 
@@ -72,7 +81,7 @@ txn_count
 ```
 <img src=images/txn.png width="320" height="250"/>
 
-### Comments on data
+### Observations on data
 
 ##### 1. There are no recurring Transaction IDs. <br>
 ##### 2. Messy data 
@@ -100,7 +109,8 @@ txn_count
 
 ### Data Preprocessing
 
-Convert column dtypes
+### Convert column dtypes
+- Convert column types to suitable dtypes.
 
 ``` python 
 columns_to_convert = {
