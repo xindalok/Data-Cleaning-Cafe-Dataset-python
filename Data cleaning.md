@@ -12,7 +12,8 @@
     - [Price Per Unit column](#rectify-price-per-unit-column)
          - [Reconcile NaN values](#reconcile-nan-price-per-unit-values)
     - [Quantity column](#rectify-quantity-column)
-    - ### [Total Spent column](#rectify-total-spent-column)
+    - [Total Spent column](#rectify-total-spent-column)
+4. [Inspect cleaned data](#inspect-cleaned-data)
 
 
 
