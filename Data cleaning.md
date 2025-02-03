@@ -1,4 +1,9 @@
-### Summary of Data Cleaning Steps  
+# Table of Contents
+
+1. [Summary of Data Cleaning Steps](#introduction)  
+
+### [Summary of Data Cleaning Steps](#summary-of-data-cleaning-steps)
+
 
 - **Data Validation and De-duplication:**  
   Identified and resolved NaN values and duplicate records to ensure data integrity.  
