@@ -39,10 +39,15 @@ print(df.head(50))
 
 ``` python
 print(df.info())
+```
+<img src=images/sinfo.png width="350" height="250"/>
 
+
+``` python
 print(df.isna().sum())
 print(f'\nThere are {df.duplicated().sum()} duplicate rows in dataset.')
 ```
+<img src=images/sumna.png width="300" height="250"/>
 
 ``` python
 # inspect unique values 
@@ -55,9 +60,6 @@ for col in df.columns[1:5]:
 txn_count = df["Transaction ID"].value_counts().sort_values(ascending = False)
 txn_count
 ```
-
-<img src=images/odf.png width="400" height="300"/>
-<img src=images/sumna.png width="300" height="250"/>
 <img src=images/txn.png width="320" height="250"/>
 
 ### Comments on data
@@ -314,3 +316,5 @@ print(sorted(df["Total Spent"].unique()))
 for col in df.columns[1:5]:  
     print(f'{col} : {sorted(df[col].unique())}')
 ```
+
+<img src=images/cleaned_data.png width="700" height="100"/>
