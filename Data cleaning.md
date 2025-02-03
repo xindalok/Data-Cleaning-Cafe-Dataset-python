@@ -8,7 +8,7 @@
     - [Convert column dtypes](#convert-column-dtypes)
     - [Item column](#rectify-item-column)
          - [Dictionary Mapping Prices to Items](#mapping-prices-to-items)
-         - [Data Reconciliation](#data-reconciliation)
+    - [Data Reconciliation](#data-reconciliation)
     - [Price Per Unit column](#rectify-price-per-unit-column)
 
  
