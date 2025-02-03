@@ -14,12 +14,9 @@
     - [Quantity column](#rectify-quantity-column)
     - [Total Spent column](#rectify-total-spent-column)
 4. [Inspect cleaned data](#inspect-cleaned-data)
-
-
-
-
- 
-
+   
+<br>
+<br>
 
 ### [Summary of Data Cleaning Steps](#summary-of-data-cleaning-steps)
 
