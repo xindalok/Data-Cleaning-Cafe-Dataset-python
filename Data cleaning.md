@@ -23,8 +23,8 @@
 
 
 ``` python
-import numpy as np # linear algebra
-import pandas as pd # data processing, CSV file I/O (e.g. pd.read_csv)
+import numpy as np 
+import pandas as pd 
 
 df = pd.read_csv('downloads/dirty_cafe_sales.csv')
 
@@ -43,6 +43,13 @@ print(df.info())
 print(df.isna().sum())
 print(f'\nThere are {df.duplicated().sum()} duplicate rows in dataset.')
 ```
+
+``` python
+# inspect unique values 
+for col in df.columns[1:5]:  
+    print(f'{col} : {df[col].unique()}')
+```
+<img src=images/pre.png width="600" height="100"/>
 
 ``` python
 txn_count = df["Transaction ID"].value_counts().sort_values(ascending = False)
@@ -299,3 +306,11 @@ df.loc[df["Total Spent"].isna(), "Total Spent"] = df.loc[df["Total Spent"].isna(
 print(sorted(df["Total Spent"].unique()))
 ```
 <img src=images/ts.png width="70" height="350"/>
+
+
+## Inspect cleaned data
+
+``` python
+for col in df.columns[1:5]:  
+    print(f'{col} : {sorted(df[col].unique())}')
+```
