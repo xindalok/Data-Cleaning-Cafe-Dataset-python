@@ -11,6 +11,11 @@
          - [Data Reconciliation](#3-data-reconciliation)
     - [Price Per Unit column](#rectify-price-per-unit-column)
          - [Reconcile NaN values](#reconcile-nan-price-per-unit-values)
+    - [Quantity column](#rectify-quantity-column)
+    - ### [Total Spent column](#rectify-total-spent-column)
+
+
+
 
  
 
