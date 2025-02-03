@@ -239,3 +239,35 @@ print(sorted(df["Price Per Unit"].unique()))
 ```
 <img src=images/noinf.png width="300" height="40"/>
 
+## Rectify Quantity column
+
+- Check 'Quantity' values for errors
+- Identified and corrected zero values in the Quantity column by recalculating them using the Total Spent and Price Per Unit columns.
+- Any remaining rows with NaN values in Quantity were removed to ensure data integrity.
+  
+``` python
+print(np.sort(df["Quantity"].unique()))
+```
+<img src=images/ar.png width="200" height="40"/>
+
+
+``` python
+# Identify values that are 0 in Quantity column 
+
+df.loc[df["Quantity"] == 0, "Quantity"] = pd.to_numeric(
+    df["Total Spent"] / df["Price Per Unit"], 
+    errors='coerce')
+
+print(sorted(df["Quantity"].unique()))
+
+```
+<img src=images/arn.png width="300" height="40"/>
+
+``` python
+# extract rows that still contain NaN values in Quantity
+missing_qty = df[df["Quantity"].isna()]
+print(missing_qty.head(50))
+
+```
+
+<img src=images/missing_qty.png width="900" height="400"/>
