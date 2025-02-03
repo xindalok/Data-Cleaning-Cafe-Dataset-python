@@ -6,6 +6,13 @@
     - [Observations on data](#observations-on-data)
 3. [Data Preprocessing](#data-preprocessing)
     - [Convert column dtypes](#convert-column-dtypes)
+    - [Item column](#rectify-item-column)
+         - [Dictionary Mapping Prices to Items](#mapping-prices-to-items)
+         - [Data Reconciliation](#data-reconciliation)
+    - [Price Per Unit column](#rectify-price-per-unit-column)
+
+ 
+
 
 
 
@@ -54,7 +61,7 @@ print(df.head(50))
 
 <img src=images/df.png width="900" height="900"/>
 
-### Inspect dataset
+## Inspect dataset
 
 ``` python
 print(df.info())
@@ -107,10 +114,13 @@ txn_count
 3. To be changed to datetime: 
     - Transaction Date
 
-### Data Preprocessing
+## Data Preprocessing
 
 ### Convert column dtypes
 - Convert column types to suitable dtypes.
+- Dictionary mapping specific columns to their desired data types.  
+- Iterate through the dictionary, converting columns to either numeric or datetime formats using `pd.to_numeric` and `pd.to_datetime`, with `errors="coerce"` to handle invalid values.  
+- Ensure missing values in integer columns are replaced with `0` before converting to integer type.  
 
 ``` python 
 columns_to_convert = {
@@ -135,9 +145,9 @@ df.info()
 
 ----------
 
-## Rectify Item column
+### Rectify Item column
 
-### Inspect Item values
+#### Inspect Item values
 
 ``` python
 print(f'There are {df["Item"].nunique()} unique items sold.')
@@ -203,7 +213,7 @@ print(missing_item_name)
 
 <img src=images/map_dict.png width="850" height="300"/>
 
-### 3. Price and Item Data Reconciliation 
+#### 3. Data Reconciliation 
 
 - **Price Per Unit Calculation:**  
   Iterates through rows in the `missing_item_name` DataFrame, calculating the 'Price Per Unit' by dividing 'Total Spent' by 'Quantity' with error handling for non-numeric values.  
@@ -240,7 +250,7 @@ print(df[df["Item"] == "No Price per unit"])
 ```
 <img src=images/empty.png width="900" height="70"/>
 
-## Rectify 'Price Per Unit' column 
+### Rectify 'Price Per Unit' column 
 
 #### Reconcile NaN 'Price Per Unit' values 
 1. using price dictionary to match Item names
@@ -268,7 +278,7 @@ print(sorted(df["Price Per Unit"].unique()))
 ```
 <img src=images/noinf.png width="300" height="40"/>
 
-## Rectify Quantity column
+### Rectify Quantity column
 
 - Check 'Quantity' values for errors
 - Identified and corrected zero values in the Quantity column by recalculating them using the Total Spent and Price Per Unit columns.
@@ -308,7 +318,7 @@ print(sorted(df["Quantity"].unique()))
 <img src=images/qty.png width="250" height="35"/>
 
 
-## Rectify 'Total Spent' column
+### Rectify 'Total Spent' column
 
 - Identify missing values in the Total Spent column
 - Recalculate and fill missing Total Spent values using 'Quantity' and 'Price Per Unit' values
