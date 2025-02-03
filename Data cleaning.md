@@ -7,7 +7,7 @@
   Converted columns to appropriate data types to align with analytical requirements and improve computational efficiency.  
 
 - **Item Name Mapping:**  
-  Leveraged a dictionary to map derived price values to corresponding item names in the 'Item' column, ensuring accurate categorization.  
+  Leveraged dictionaries to map derived price values to corresponding item names, ensuring accurate categorization.  
 
 - **Unit Price Derivation:**  
   Computed 'Price Per Unit' by dividing the 'Total Spent' column by the 'Quantity' column.  
@@ -317,4 +317,4 @@ for col in df.columns[1:5]:
     print(f'{col} : {sorted(df[col].unique())}')
 ```
 
-<img src=images/cleaned_data.png width="700" height="100"/>
+<img src=images/cleaned_data.png width="750" height="100"/>
