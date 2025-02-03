@@ -261,7 +261,7 @@ df.loc[df["Quantity"] == 0, "Quantity"] = pd.to_numeric(
 print(sorted(df["Quantity"].unique()))
 
 ```
-<img src=images/arn.png width="300" height="40"/>
+<img src=images/arn.png width="250" height="35"/>
 
 ``` python
 # extract rows that still contain NaN values in Quantity
@@ -271,3 +271,31 @@ print(missing_qty.head(50))
 ```
 
 <img src=images/missing_qty.png width="900" height="400"/>
+
+``` python
+df = df.drop(missing_qty.index, axis = 0, errors = "ignore")
+print(sorted(df["Quantity"].unique()))
+```
+<img src=images/qty.png width="250" height="35"/>
+
+
+## Rectify 'Total Spent' column
+
+- Identify missing values in the Total Spent column
+- Recalculate and fill missing Total Spent values using 'Quantity' and 'Price Per Unit' values
+- Address NaN values to ensure data completeness
+
+``` python
+missing_total_spent = df[df["Total Spent"].isna()]
+print(missing_total_spent)
+```
+<img src=images/miss_ts.png width="700" height="350"/>
+
+``` python
+# Recalculate and fill missing values in the "Total Spent" column by multiplying 
+# the corresponding "Quantity" and "Price Per Unit" for rows where "Total Spent" is NaN
+df.loc[df["Total Spent"].isna(), "Total Spent"] = df.loc[df["Total Spent"].isna(), "Quantity"] * df.loc[df["Total Spent"].isna(), "Price Per Unit"]
+
+print(sorted(df["Total Spent"].unique()))
+```
+<img src=images/ts.png width="70" height="350"/>
