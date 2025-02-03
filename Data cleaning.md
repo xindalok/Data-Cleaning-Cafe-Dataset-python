@@ -1,6 +1,6 @@
 # Table of Contents
 
-1. [Summary of Data Cleaning Steps](#introduction)
+1. [Summary of Data Cleaning Steps](#summary-of-data-cleaning-steps)
 2. [Dataset](#dataset)
     - [Inspect dataset](#inspect-dataset)
     - [Observations on data](#observations-on-data)
@@ -18,7 +18,7 @@
 <br>
 <br>
 
-### [Summary of Data Cleaning Steps](#summary-of-data-cleaning-steps)
+### Summary of Data Cleaning Steps
 
 
 - **Data Validation and De-duplication:**  
