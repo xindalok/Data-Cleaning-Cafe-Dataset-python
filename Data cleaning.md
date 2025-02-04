@@ -343,4 +343,4 @@ for col in df.columns[1:5]:
     print(f'{col} : {sorted(df[col].unique())}')
 ```
 
-<img src=images/cleaned_data.png width="750" height="100"/>
+<img src=images/cleaned_data.png width="780" height="90"/>
