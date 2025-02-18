@@ -338,6 +338,9 @@ print(sorted(df["Total Spent"].unique()))
 
 ## Inspect cleaned data
 
+Check for NaN values and non-existent entries in columns 1 through 4. <br>
+By sorting the unique values, it helps identify missing or invalid data, ensuring the dataset is clean and consistent.
+
 ``` python
 for col in df.columns[1:5]:  
     print(f'{col} : {sorted(df[col].unique())}')
