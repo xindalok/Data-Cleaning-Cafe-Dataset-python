@@ -89,11 +89,11 @@ txn_count
 ##### 1. There are no recurring Transaction IDs. <br>
 ##### 2. Messy data 
 1. Unknown data in Item column
-    - Use item_price dictionary to determine the item
+    - Solution: Use item_price dictionary to determine the item
 2. Error values in Quantity column
-    - Use 'Total Spent' / 'Price per unit' to get value
+    - Solution: Use 'Total Spent' / 'Price per unit' to get value
 3. Error values in 'Total Spent' column
-    - Use 'Quantity' * 'Price per unit' to get value
+    - Solution: Use 'Quantity' * 'Price per unit' to get value
 4. Unknown / NaN / Error values in 'Payment Method' column
     - Have to determine if we need to drop them or just leave them
 5. Unknown / NaN / Error values in 'Location' column
