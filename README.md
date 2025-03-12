@@ -10,3 +10,11 @@ https://www.kaggle.com/datasets/ahmedmohamed2003/cafe-sales-dirty-data-for-clean
 
 ### Tools 
 Python - Jupyter Notebook
+
+### **Data Issues & Preprocessing Summary**  
+
+The dataset contained **missing, incorrect, and inconsistent values** in multiple columns, including 'Item,' 'Quantity,' 'Total Spent,' 'Payment Method,' 'Location,' and 'Transaction Date.' <br>
+Errors in **quantity and total spent** were recalculated, and **unknown item names** were inferred using 'Price per Unit.' <br> 
+Missing values were **evaluated for retention or removal**, and **data types were corrected** for numerical and datetime fields. <br>
+<br>
+These steps ensure **clean, structured, and accurate** data for analysis. 🚀
